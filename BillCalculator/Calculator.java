@@ -52,23 +52,49 @@ public class Calculator {
 
     boolean payTip = true;
     boolean splitBillEvenly = true;
+
+    double personOneSubTotal = personOneAppetizerCost + personOneMainCost + personOneDessertCost + personOneDrinkCost;
+    double personTwoSubTotal = personTwoAppetizerCost + personTwoMainCost + personTwoDessertCost + personTwoDrinkCost;
+    double personThreeSubTotal = personThreeAppetizerCost + personThreeMainCost + personThreeDessertCost
+        + personThreeDrinkCost;
+    double personFourSubTotal = personFourAppetizerCost + personFourMainCost + personFourDessertCost
+        + personFourDrinkCost;
+
+    double taxAmount = taxPercent / 100;
+    double personOneTax = taxAmount * personOneSubTotal;
+    double personTwoTax = taxAmount * personTwoSubTotal;
+    double personThreeTax = taxAmount * personThreeSubTotal;
+    double personFourTax = taxAmount * personFourSubTotal;
+
+    double mealSubTotal = personOneSubTotal + personTwoSubTotal + personThreeSubTotal + personFourSubTotal;
+    double mealTax = mealSubTotal * taxAmount;
+    double mealTip = (tipPercent / 100) * mealSubTotal;
+    double mealTotal = mealSubTotal + mealTax + mealTip;
+
+    double evenCostPerPerson = mealTotal / numberOfPersons;
+
+    double personOneTip = (tipPercent / 100) * personOneSubTotal;
+    double personTwoTip = (tipPercent / 100) * personTwoSubTotal;
+    double personThreeTip = (tipPercent / 100) * personThreeSubTotal;
+    double personFourTip = (tipPercent / 100) * personFourSubTotal;
+
+    double personOneTotal = personOneSubTotal + personOneTip + personOneTax;
+    double personTwoTotal = personTwoSubTotal + personTwoTip + personTwoTax;
+    double personThreeTotal = personThreeSubTotal + personThreeTip + personThreeTax;
+    double personFourTotal = personFourSubTotal + personFourTip + personFourTax;
+
+    System.out.println("Total cost of meal");
+    System.out.println(mealTotal);
+    System.out.println("Amount each person pays if split evenly");
+    System.out.println(evenCostPerPerson);
+    System.out.println("If not split evenly:");
+    System.out.println(personOneName);
+    System.out.println(personOneTotal);
+    System.out.println(personTwoName);
+    System.out.println(personTwoTotal);
+    System.out.println(personThreeName);
+    System.out.println(personThreeTotal);
+    System.out.println(personFourName);
+    System.out.println(personFourTotal);
   }
 }
-
-// Person Item Cost
-// Adeline Stuffed Ziti Fritta $9.99
-// Shrimp Scampi $23.99
-// Sicilian Cheesecake $10.29
-// Raspberry Lemonade x 2 $8.50
-// Brixton Lasagna Fritta $12.99
-// Fettuccine Alfredo $18.99
-// Lemon Cream Cake $9.99
-// Mango-Strawberry Iced Tea $4.25
-// Cora Fried Mozzarella $10.49
-// Tour of Italy $26.79
-// Zeppoli $10.29
-// Fresh Brewed Iced Tea $3.75
-// Dean Classic Shrimp Scampi Fritta $13.79
-// Seafood Alfredo $25.99
-// Dolcini $4.49
-// Coke x 2 $7.50
