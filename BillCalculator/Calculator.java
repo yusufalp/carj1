@@ -90,6 +90,34 @@ public class Calculator {
     double personThreeTotal = personThreeSubTotal + personThreeTip + personThreeTax;
     double personFourTotal = personFourSubTotal + personFourTip + personFourTax;
 
+    double diffPersonOne = Math.abs(personOneTotal - evenCostPerPerson);
+    double diffPersonTwo = Math.abs(personTwoTotal - evenCostPerPerson);
+    double diffPersonThree = Math.abs(personThreeTotal - evenCostPerPerson);
+    double diffPersonFour = Math.abs(personFourTotal - evenCostPerPerson);
+
+    if (serviceWasGood) {
+      mealTip = (tipPercent / 100) * mealSubTotal;
+      mealTotal = mealSubTotal + mealTax + mealTip;
+
+      personOneTip = (tipPercent / 100) * personOneSubTotal;
+      personTwoTip = (tipPercent / 100) * personTwoSubTotal;
+      personThreeTip = (tipPercent / 100) * personThreeSubTotal;
+      personFourTip = (tipPercent / 100) * personFourSubTotal;
+
+      personOneTotal = personOneSubTotal + personOneTip + personOneTax;
+      personTwoTotal = personTwoSubTotal + personTwoTip + personTwoTax;
+      personThreeTotal = personThreeSubTotal + personThreeTip + personThreeTax;
+      personFourTotal = personFourSubTotal + personFourTip + personFourTax;
+
+    } else {
+      mealTotal = mealSubTotal + mealTax;
+
+      personOneTotal = personOneSubTotal + personOneTax;
+      personTwoTotal = personTwoSubTotal + personTwoTax;
+      personThreeTotal = personThreeSubTotal + personThreeTax;
+      personFourTotal = personFourSubTotal + personFourTax;
+    }
+
     System.out.printf("Total cost of meal: $%.2f (including $%.2f tax and $%.2f tip)\n", mealTotal, mealTax, mealTip);
 
     System.out.printf("Amount each person pays if split evenly in %s is: $%.2f\n", numberOfPersons, evenCostPerPerson);
